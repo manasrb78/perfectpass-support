@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PerfectPass Support</title>
+<style>
+  :root {
+    --navy: #1E3A5F;
+    --navy-deep: #16212E;
+    --gold: #9C7A2E;
+    --gold-bright: #D2A63C;
+    --bg: #F5F7FA;
+    --surface: #FFFFFF;
+    --text: #16212E;
+    --text-muted: #5B6B7D;
+    --border: #E0E6ED;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+  .mark {
+    width: 56px; height: 56px; border-radius: 15px;
+    background: linear-gradient(135deg, var(--navy), #16212E);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .mark svg { width: 30px; height: 30px; }
+  h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .tagline { color: var(--text-muted); margin: 0 0 40px; font-size: 15px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-size: 17px; margin: 0 0 8px; }
+  .card p { margin: 0 0 14px; color: var(--text-muted); font-size: 15px; }
+  .card p:last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--navy); color: #fff; text-decoration: none;
+    padding: 11px 18px; border-radius: 24px; font-size: 15px; font-weight: 600;
+  }
+  .btn.secondary {
+    background: transparent; color: var(--navy);
+    border: 1px solid var(--border);
+  }
+  dl { margin: 0; }
+  dt { font-weight: 600; font-size: 15px; margin-top: 18px; }
+  dt:first-child { margin-top: 0; }
+  dd { margin: 4px 0 0; color: var(--text-muted); font-size: 14px; }
+  footer { margin-top: 48px; color: var(--text-muted); font-size: 13px; }
+  footer a { color: var(--text-muted); }
+  a { color: var(--navy); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">
+    <svg viewBox="0 0 100 100" fill="none">
+      <rect x="42" y="35" width="16" height="30" rx="3" fill="#fff"/>
+      <circle cx="50" cy="44" r="4.6" fill="#1E3A5F"/>
+      <rect x="46" y="52" width="8" height="9" rx="2" fill="#1E3A5F"/>
+      <g stroke="#D2A63C" stroke-width="2.6" stroke-linecap="round">
+        <path d="M30 40 V30 H40"/>
+        <path d="M70 30 H80 V40"/>
+        <path d="M80 60 V70 H70"/>
+        <path d="M40 70 H30 V60"/>
+      </g>
+    </svg>
+  </div>
+
+  <h1>PerfectPass Support</h1>
+  <p class="tagline">Official photos. Print ready. — passport &amp; ID photo maker for iOS and Android.</p>
+
+  <div class="card">
+    <h2>Get help</h2>
+    <p>Something not working, a document type missing, or a question about a purchase? Email us and we'll get back to you, usually within a couple of days.</p>
+    <a class="btn" href="mailto:5g6gacademy@gmail.com?subject=PerfectPass%20support">Email support</a>
+  </div>
+
+  <div class="card">
+    <h2>Common questions</h2>
+    <dl>
+      <dt>My face wasn't detected / the countdown never starts</dt>
+      <dd>Make sure you're facing the camera directly, in even light, with your whole head and shoulders in frame. The live checklist above the shutter shows exactly which requirement isn't met yet.</dd>
+
+      <dt>The background wasn't replaced</dt>
+      <dd>Background separation needs a real device (it doesn't run in a simulator) and a clear edge between you and the wall behind you. If it can't find one, your original background is kept and the photo is still the right size.</dd>
+
+      <dt>I don't see a purchase option / it says unavailable</dt>
+      <dd>This means the in-app purchase isn't fully set up on our end yet. Email us and we'll let you know when it's live.</dd>
+
+      <dt>My country or document type isn't listed</dt>
+      <dd>Tell us which one — we're adding coverage over time, and you can always enter a custom size by hand from the document picker in the meantime.</dd>
+
+      <dt>How do I delete my data?</dt>
+      <dd>Everything PerfectPass stores lives only on your device. Delete it in-app from <strong>Privacy &amp; unlock → Delete all saved documents</strong>, or uninstall the app.</dd>
+    </dl>
+  </div>
+
+  <div class="card">
+    <h2>Privacy</h2>
+    <p>PerfectPass has no account system, no server, and no advertising or analytics SDK. Your photos never leave your device.</p>
+    <a class="btn secondary" href="privacy.html">Read the full privacy policy</a>
+  </div>
+
+  <footer>
+    © 2026 Manas Behera. PerfectPass is not affiliated with any government or passport authority.
+  </footer>
+</div>
+</body>
+</html>
