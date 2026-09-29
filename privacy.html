@@ -41,7 +41,7 @@
 <div class="wrap">
   <a class="back" href="./">&larr; PerfectPass</a>
   <h1>PerfectPass Privacy Policy</h1>
-  <p class="updated">Last updated: September 10, 2026</p>
+  <p class="updated">Last updated: September 29, 2026</p>
 
   <div class="card">
     <p>PerfectPass ("the app", "we") is a biometric ID and passport photo maker for Android and iOS. This policy describes exactly what the app does and does not do with your data.</p>
@@ -61,6 +61,16 @@
     <h2>What we collect</h2>
     <p><strong>Your photos and saved documents — not collected.</strong> Every photo you capture or import, every edit, every compliance check, and every saved document stays in the app's private storage on your device. Saved documents are excluded from cloud device backups by design. Uninstalling the app deletes them permanently; you can also delete them yourself at any time from <strong>Privacy &amp; unlock → Delete all saved documents</strong>.</p>
     <p><strong>Camera.</strong> The app requests camera access to let you take a photo. The camera feed is processed live, on-device, to draw the framing guide overlay; nothing from the camera is transmitted anywhere.</p>
+    <p><strong>Face data.</strong> The app uses Apple's on-device Vision framework (<code>VNDetectFaceLandmarksRequest</code> and <code>VNGeneratePersonSegmentationRequest</code>) to find your face and body outline in a photo you take or import. This produces two things, both purely geometric and both temporary:</p>
+    <ul>
+      <li><strong>Landmark positions</strong> — where your eyes, chin, and the outline of your face sit in the picture — used to crop the photo to your document's exact head-height and eye-line requirements, to draw the live framing guide during capture, and to measure the finished photo's dimensions.</li>
+      <li><strong>A person-shaped mask</strong> — an outline separating you from the background — used to replace the background with the plain colour your document requires.</li>
+    </ul>
+    <p>This is not face recognition or identification. Vision reports coordinates and a mask, not an identity, a numeric face embedding, or anything that could be matched against another photo or a database. The app cannot recognise who is in a photo, compare faces, or tell two photos of the same person apart — it has no code that does any of that.</p>
+    <p><strong>Use:</strong> solely to crop, guide, measure, and replace the background of the photo on screen, as described above. Not used for any other purpose.</p>
+    <p><strong>Sharing:</strong> never shared with any third party. This processing runs entirely on-device using Apple's Vision framework; no image, video frame, landmark, or mask is ever transmitted anywhere. PerfectPass has no server and no code that makes a network request of any kind.</p>
+    <p><strong>Storage:</strong> landmark positions and the person mask exist only in memory while a photo is actively being processed, and are recalculated from the photo itself each time they're needed (for example, when you reopen a saved photo to crop it again). Nothing describing your face — coordinates, measurements, or a mask — is ever written to disk, to UserDefaults, or to the SwiftData store on its own. Only the finished photo (pixels) is saved, in the on-device storage described above.</p>
+    <p><strong>Retention and deletion:</strong> face data is not retained independently of the photo it was derived from — it is discarded from memory as soon as the crop, guide, measurement, or background replacement it was computed for is finished, typically within a fraction of a second. Deleting the photo from the vault, or uninstalling the app, removes everything, since no face data exists once the photo it depended on is gone.</p>
     <p><strong>Advertising identifier — not collected, on either platform.</strong> Earlier versions of the Android app carried a single banner ad and, with your consent, used your device's advertising identifier for it. That has been removed: there is no advertising SDK in either app, no consent prompt, and no advertising identifier is requested or read.</p>
     <p><strong>Purchase status.</strong> Google Play Billing / Apple StoreKit tell the app what you've bought (a €0.99 single photo, or the €5.99 lifetime unlock, on either platform). We don't receive or store your card details, billing address, or any other payment information — that's handled entirely by Google/Apple.</p>
   </div>
@@ -75,8 +85,9 @@
     <table>
       <tr><th>Party</th><th>What they get</th><th>Why</th></tr>
       <tr><td>Google Play Billing / Apple StoreKit</td><td>Purchase confirmation only</td><td>Processes the in-app unlocks</td></tr>
+      <tr><td>Apple's Vision framework (on-device only)</td><td>Nothing — runs locally on your phone, not as a network service</td><td>Finds face landmarks and the person outline used to crop, guide, and replace the background — see <strong>Face data</strong> above</td></tr>
     </table>
-    <p>That is the complete list. There is no advertising network, no analytics provider, and no crash reporter.</p>
+    <p>That is the complete list. There is no advertising network, no analytics provider, and no crash reporter. Face data specifically is never sent to Apple, to us, or to anyone else — Vision is on-device code included with iOS, not a service your data is uploaded to.</p>
   </div>
 
   <div class="card">
